@@ -1,0 +1,41 @@
+{
+  "name": "Applications",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "source": {
+      "type": "string"
+    },
+    "contacted": {
+      "type": "number"
+    },
+    "hired": {
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "job": {
+      "type": "belongsTo",
+      "model": "Job",
+      "foreignKey": "job_id"
+    },
+    "candidate": {
+      "type": "belongsTo",
+      "model": "Candidate",
+      "foreignKey": "candidate_id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}
